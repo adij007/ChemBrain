@@ -1,0 +1,11 @@
+.hf_cache/
+.pip-cache/
+.python_packages/
+.runtime_packages/
+.tmp/
+.install_tmp/
+.wheels/
+.wheel_zips/
+demo_output/
+__pycache__/
+*.py[cod]
