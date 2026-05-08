@@ -1,11 +1,6 @@
 # Windows/Python 3.12 compatible install set used in this workspace.
 # rdkit-pypi currently has no compatible wheel here; rdkit exposes the same
 # `from rdkit import Chem` import path used by the inference layer.
-transformers
-torch
-accelerate
-sentencepiece
-huggingface_hub
 rdkit
 py3Dmol
 scipy
@@ -13,5 +8,5 @@ numpy
 matplotlib
 biopython
 requests
-sacremoses
 chardet
+flask

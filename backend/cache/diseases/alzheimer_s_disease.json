@@ -1,0 +1,185 @@
+{
+  "disease": "Alzheimer's disease",
+  "source": "live",
+  "candidates": [
+    {
+      "drug": "Enalaprilat Anhydrous",
+      "approved_for": "Approved drug, first approval 1988",
+      "target": "angiotensin I converting enzyme",
+      "ic50": "IC50 1.2 nM",
+      "evidence_score": 0.634,
+      "safety": "unknown",
+      "composite_score": 0.68,
+      "rationale": "Enalaprilat Anhydrous is an approved drug with experimental ChEMBL activity against angiotensin I converting enzyme, a target connected to Alzheimer's disease by Open Targets evidence. The measured activity (IC50 1.2 nM) and genetic evidence score (0.634) make it a reasonable repurposing hypothesis for scientific review. Key risk: OpenFDA unavailable for this candidate.",
+      "reaction_brief": "The molecular context block includes SMILES data (no PubChem SMILES returned) and the target pathway context (Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)). RCSB enrichment reports: RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.. In this backend fallback, bond-level contacts are described conservatively from assay and structure metadata rather than claimed as validated docking results.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Enalaprilat Anhydrous/PNG",
+      "safety_detail": "OpenFDA unavailable for this candidate.",
+      "data_confidence": "Live result from Open Targets, ChEMBL, PubChem, OpenFDA, and RCSB. ChEMBL molecule: CHEMBL577. Assay context: Inhibition of Angiotensin I converting enzyme.",
+      "binding_site": "RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.",
+      "source_urls": [
+        "https://platform.opentargets.org/",
+        "https://www.ebi.ac.uk/chembl/",
+        "https://pubchem.ncbi.nlm.nih.gov/",
+        "https://open.fda.gov/apis/drug/event/",
+        "https://www.rcsb.org/"
+      ],
+      "raw": {
+        "target": {
+          "id": "ENSG00000159640",
+          "symbol": "ACE",
+          "name": "angiotensin I converting enzyme",
+          "evidence_score": 0.634,
+          "uniprot_id": "P12821"
+        },
+        "protein": {
+          "accession": "P12821",
+          "protein_name": "Angiotensin-converting enzyme",
+          "function": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+          "pathways": []
+        },
+        "activity": {
+          "drug": "Enalaprilat Anhydrous",
+          "molecule_chembl_id": "CHEMBL577",
+          "approved_for": "Approved drug, first approval 1988",
+          "target": "ACE",
+          "target_chembl_id": "CHEMBL1808",
+          "standard_type": "IC50",
+          "standard_value": "1.2",
+          "standard_units": "nM",
+          "binding_score": 0.943,
+          "assay_description": "Inhibition of Angiotensin I converting enzyme"
+        },
+        "pubchem": {
+          "cid": 5462501,
+          "canonical_smiles": null,
+          "isomeric_smiles": null,
+          "molecular_formula": "C18H24N2O5",
+          "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Enalaprilat Anhydrous/PNG"
+        },
+        "safety": {
+          "safety": "unknown",
+          "safety_detail": "OpenFDA unavailable for this candidate."
+        },
+        "biomedlm_context": {
+          "drug": "Enalaprilat Anhydrous",
+          "disease": "Alzheimer's disease",
+          "smiles": null,
+          "molecular_formula": "C18H24N2O5",
+          "functional_groups": [
+            "functional groups not inferred from available SMILES"
+          ],
+          "binding_target": {
+            "label": "angiotensin I converting enzyme",
+            "symbol": "ACE",
+            "uniprot_id": "P12821",
+            "function": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+            "pathways": []
+          },
+          "binding_site_residues": "RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.",
+          "interaction_type": "IC50",
+          "ic50": "IC50 1.2 nM",
+          "target_pathway": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+          "genetic_evidence_score": 0.634,
+          "approved_indication": "Approved drug, first approval 1988",
+          "known_adverse_effects": "OpenFDA unavailable for this candidate.",
+          "assay_description": "Inhibition of Angiotensin I converting enzyme",
+          "prompts": {
+            "mechanistic_rationale": "Generate a mechanistic repurposing rationale for Enalaprilat Anhydrous against Alzheimer's disease in 3-4 sentences. Explain the mechanism of action, why existing binding data suggests relevance, and note one key risk.",
+            "reaction_brief": "Given the chemical structure and functional groups of Enalaprilat Anhydrous, explain step by step how it physically interacts with the binding site of angiotensin I converting enzyme. Describe which molecular bonds form, how this disrupts the target's normal function in Alzheimer's disease, and what the downstream biological effect is. Keep it to 4-5 sentences, written for a scientifically literate audience."
+          }
+        }
+      }
+    },
+    {
+      "drug": "Lisinopril Anhydrous",
+      "approved_for": "Approved drug, first approval 1987",
+      "target": "angiotensin I converting enzyme",
+      "ic50": "IC50 1.2 nM",
+      "evidence_score": 0.634,
+      "safety": "yellow",
+      "composite_score": 0.63,
+      "rationale": "Lisinopril Anhydrous is an approved drug with experimental ChEMBL activity against angiotensin I converting enzyme, a target connected to Alzheimer's disease by Open Targets evidence. The measured activity (IC50 1.2 nM) and genetic evidence score (0.634) make it a reasonable repurposing hypothesis for scientific review. Key risk: Commonly reported OpenFDA reactions include TACHYCARDIA, INFLAMMATION, MALAISE.",
+      "reaction_brief": "The molecular context block includes SMILES data (no PubChem SMILES returned) and the target pathway context (Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)). RCSB enrichment reports: RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.. In this backend fallback, bond-level contacts are described conservatively from assay and structure metadata rather than claimed as validated docking results.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Lisinopril Anhydrous/PNG",
+      "safety_detail": "Commonly reported OpenFDA reactions include TACHYCARDIA, INFLAMMATION, MALAISE.",
+      "data_confidence": "Live result from Open Targets, ChEMBL, PubChem, OpenFDA, and RCSB. ChEMBL molecule: CHEMBL1237. Assay context: Inhibition of Angiotensin I converting enzyme.",
+      "binding_site": "RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.",
+      "source_urls": [
+        "https://platform.opentargets.org/",
+        "https://www.ebi.ac.uk/chembl/",
+        "https://pubchem.ncbi.nlm.nih.gov/",
+        "https://open.fda.gov/apis/drug/event/",
+        "https://www.rcsb.org/"
+      ],
+      "raw": {
+        "target": {
+          "id": "ENSG00000159640",
+          "symbol": "ACE",
+          "name": "angiotensin I converting enzyme",
+          "evidence_score": 0.634,
+          "uniprot_id": "P12821"
+        },
+        "protein": {
+          "accession": "P12821",
+          "protein_name": "Angiotensin-converting enzyme",
+          "function": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+          "pathways": []
+        },
+        "activity": {
+          "drug": "Lisinopril Anhydrous",
+          "molecule_chembl_id": "CHEMBL1237",
+          "approved_for": "Approved drug, first approval 1987",
+          "target": "ACE",
+          "target_chembl_id": "CHEMBL1808",
+          "standard_type": "IC50",
+          "standard_value": "1.2",
+          "standard_units": "nM",
+          "binding_score": 0.943,
+          "assay_description": "Inhibition of Angiotensin I converting enzyme"
+        },
+        "pubchem": {
+          "cid": 5362119,
+          "canonical_smiles": null,
+          "isomeric_smiles": null,
+          "molecular_formula": "C21H31N3O5",
+          "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Lisinopril Anhydrous/PNG"
+        },
+        "safety": {
+          "safety": "yellow",
+          "safety_detail": "Commonly reported OpenFDA reactions include TACHYCARDIA, INFLAMMATION, MALAISE."
+        },
+        "biomedlm_context": {
+          "drug": "Lisinopril Anhydrous",
+          "disease": "Alzheimer's disease",
+          "smiles": null,
+          "molecular_formula": "C21H31N3O5",
+          "functional_groups": [
+            "functional groups not inferred from available SMILES"
+          ],
+          "binding_target": {
+            "label": "angiotensin I converting enzyme",
+            "symbol": "ACE",
+            "uniprot_id": "P12821",
+            "function": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+            "pathways": []
+          },
+          "binding_site_residues": "RCSB candidate structure 5amc: Crystal structure of the Angiotensin-1 converting enzyme N-domain in complex with amyloid-beta fluorogenic fragment 4-10 (X-RAY DIFFRACTION, 1.65 A resolution, 7 non-polymer ligand entities). Exact binding-site residues require ligand-pocket mapping before clinical interpretation.",
+          "interaction_type": "IC50",
+          "ic50": "IC50 1.2 nM",
+          "target_pathway": "Isoform produced by alternative promoter usage that is specifically expressed in spermatocytes and adult testis, and which is required for male fertility (PubMed:1651327, PubMed:1668266). In contrast to somatic isoforms, only contains one catalytic domain (PubMed:1651327, PubMed:1668266). Acts as a dipeptidyl carboxypeptidase that removes dipeptides from the C-terminus of substrates (PubMed:1668266, PubMed:24297181). The identity of substrates that are needed for male fertility is unknown (By similarity). May also have a glycosidase activity which releases GPI-anchored proteins from the membrane by cleaving the mannose linkage in the GPI moiety. The GPIase activity was reported to be essential for the egg-binding ability of the sperm (By similarity). This activity is however unclear and has been challenged by other groups, suggesting that it may be indirect (By similarity)",
+          "genetic_evidence_score": 0.634,
+          "approved_indication": "Approved drug, first approval 1987",
+          "known_adverse_effects": "Commonly reported OpenFDA reactions include TACHYCARDIA, INFLAMMATION, MALAISE.",
+          "assay_description": "Inhibition of Angiotensin I converting enzyme",
+          "prompts": {
+            "mechanistic_rationale": "Generate a mechanistic repurposing rationale for Lisinopril Anhydrous against Alzheimer's disease in 3-4 sentences. Explain the mechanism of action, why existing binding data suggests relevance, and note one key risk.",
+            "reaction_brief": "Given the chemical structure and functional groups of Lisinopril Anhydrous, explain step by step how it physically interacts with the binding site of angiotensin I converting enzyme. Describe which molecular bonds form, how this disrupts the target's normal function in Alzheimer's disease, and what the downstream biological effect is. Keep it to 4-5 sentences, written for a scientifically literate audience."
+          }
+        }
+      }
+    }
+  ],
+  "warnings": [
+    "Sparse result fallback: expanding to additional Open Targets associations."
+  ]
+}

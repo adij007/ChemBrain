@@ -1,0 +1,39 @@
+{
+  "disease": "Alzheimer's disease",
+  "source": "cache",
+  "candidates": [
+    {
+      "drug": "Memantine",
+      "approved_for": "Alzheimer's disease",
+      "target": "NMDA receptor signaling",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.88,
+      "safety": "green",
+      "composite_score": 0.82,
+      "rationale": "Memantine is already used in Alzheimer's disease and is included as a positive-control candidate for the prototype. Its NMDA receptor modulation is relevant to excitotoxicity and neuronal signaling, which makes it useful for validating the workflow output. This cached result is intended for demo reliability and science-lead review.",
+      "reaction_brief": "Memantine is a small amine-containing molecule that can interact within ion-channel binding environments through polar and hydrophobic contacts. In this prototype, the molecular explanation is pathway-level rather than a validated docking claim. The expected biological effect is reduced excessive NMDA receptor activity and downstream neuronal stress.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/memantine/PNG",
+      "safety_detail": "Generally tolerated; dizziness, confusion, and headache are known adverse effects.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Donepezil",
+      "approved_for": "Alzheimer's disease",
+      "target": "Acetylcholinesterase",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.81,
+      "safety": "yellow",
+      "composite_score": 0.73,
+      "rationale": "Donepezil is an acetylcholinesterase inhibitor used for symptomatic treatment in Alzheimer's disease. It is useful in the demo as another positive-control candidate because the disease, target, and approved indication line up clearly. Safety monitoring still matters because cholinergic effects can limit tolerability.",
+      "reaction_brief": "Donepezil binds acetylcholinesterase through aromatic and polar contacts in the enzyme gorge. That interaction reduces acetylcholine breakdown and can temporarily improve cholinergic signaling. In the prototype, this brief summarizes established pharmacology rather than new repurposing proof.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/donepezil/PNG",
+      "safety_detail": "Can cause nausea, bradycardia, insomnia, and gastrointestinal effects.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    }
+  ],
+  "warnings": [
+    "Cached demo disease; not clinical recommendation."
+  ]
+}

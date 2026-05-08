@@ -1,0 +1,39 @@
+{
+  "disease": "SARS-CoV-2",
+  "source": "cache",
+  "candidates": [
+    {
+      "drug": "Remdesivir",
+      "approved_for": "COVID-19",
+      "target": "Viral RNA-dependent RNA polymerase",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.84,
+      "safety": "yellow",
+      "composite_score": 0.74,
+      "rationale": "Remdesivir is included as a positive-control antiviral candidate because it targets viral RNA replication biology relevant to SARS-CoV-2. It helps demonstrate that the prototype can show drugs with clear target-disease linkage when the evidence is already established. Safety and clinical-context caveats should be kept visible.",
+      "reaction_brief": "Remdesivir is a nucleotide analog prodrug whose active metabolite can be incorporated during viral RNA synthesis. That interaction disrupts polymerase-driven replication and reduces viral genome production. This prototype brief summarizes known antiviral mechanism rather than a new docking result.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/remdesivir/PNG",
+      "safety_detail": "Liver enzyme elevations and infusion-related reactions are monitored risks.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Dexamethasone",
+      "approved_for": "Inflammatory and immune-mediated conditions",
+      "target": "Glucocorticoid receptor / inflammatory signaling",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.72,
+      "safety": "yellow",
+      "composite_score": 0.66,
+      "rationale": "Dexamethasone is relevant to severe COVID-19 because it can suppress harmful inflammation rather than directly targeting the virus. It is a good demo example of repurposing through host-response biology. It should be framed carefully because timing and patient severity strongly affect usefulness.",
+      "reaction_brief": "Dexamethasone binds the glucocorticoid receptor through steroid-receptor interactions and changes transcription of inflammatory mediators. The downstream effect is reduced immune overactivation in severe disease contexts. This is a host-pathway mechanism, not direct antiviral binding.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/dexamethasone/PNG",
+      "safety_detail": "Can cause hyperglycemia, immunosuppression, mood changes, and infection risk.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    }
+  ],
+  "warnings": [
+    "Cached demo disease; not clinical recommendation."
+  ]
+}

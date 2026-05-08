@@ -1,8 +1,7 @@
 """AI inference, formula, and 3D visualization layer.
 
 The backend-facing entrypoint is `generate_drug_explanations(context)`.
-It validates the locked schema, lazily loads BioMedLM with Intel-safe
-float32 device handling, falls back to BioGPT when needed, and returns:
+It validates the locked schema, runs local Ollama inference, and returns:
 
 - mechanistic_rationale
 - reaction_brief
@@ -20,9 +19,12 @@ import math
 import os
 import re
 import sys
-from dataclasses import dataclass
+import time
+from collections import deque
 from pathlib import Path
 from typing import Any
+
+import requests
 
 
 def _ensure_workspace_packages() -> None:
@@ -42,6 +44,13 @@ def _ensure_workspace_packages() -> None:
 
 
 _ensure_workspace_packages()
+
+_OLLAMA_MODEL = os.getenv("CHEMBRAIN_OLLAMA_MODEL", "llama3").strip() or "llama3"
+_OLLAMA_URL = (
+    os.getenv("CHEMBRAIN_OLLAMA_URL", "http://localhost:11434/api/generate").strip()
+    or "http://localhost:11434/api/generate"
+)
+_OLLAMA_PROMPT_TIMESTAMPS: deque[float] = deque()
 
 
 REQUIRED_CONTEXT_FIELDS = (
@@ -274,144 +283,176 @@ Rules:
 Simulation:"""
 
 
-@dataclass
-class ModelRuntime:
-    """Lazy model holder with Intel-safe float32 loading and BioGPT fallback."""
+def build_research_synthesis_prompt(context: dict[str, Any]) -> str:
+    return f"""You are a biomedical research scientist writing for a scientifically literate audience.
 
-    primary_model_name: str = "stanford-crfm/BioMedLM"
-    fallback_model_name: str = "microsoft/biogpt"
-    tokenizer: Any | None = None
-    model: Any | None = None
-    device: Any | None = None
-    active_model_name: str | None = None
-    acceleration_status: str = "not initialized"
+Candidate Context:
+- Drug name: {context['drug_name']}
+- Approved indication: {context['approved_indication']}
+- Target name: {context['target_name']} ({context['uniprot_id']})
+- Target pathway: {context['target_pathway']}
+- Measured IC50: {context['ic50_value']} {context['ic50_unit']}
+- Genetic evidence score: {context['genetic_evidence_score']}
+- Interaction type: {context['interaction_type']}
+- Known adverse effects: {', '.join(context['adverse_effects'])}
 
-    def load(self) -> "ModelRuntime":
-        if self.model is not None and self.tokenizer is not None:
-            return self
+Task: Write exactly 5 sentences that are critical and evidence-based (not promotional):
+1) The strongest scientific argument FOR repurposing this drug for the target biology
+2) The most significant evidence gap or uncertainty
+3) One specific in vitro experiment that could confirm or refute the mechanism
+4) How the safety profile impacts clinical feasibility
+5) Confidence rating: HIGH, MODERATE, or LOW, with a one-sentence justification
 
-        import torch
-        from transformers import AutoModelForCausalLM, AutoTokenizer
+Output exactly five sentences and include a confidence label in sentence 5.
+Research Synthesis:"""
 
-        self.device = self._select_device(torch)
 
-        if os.getenv("CHEMBRAIN_FORCE_BIOGPT", "").strip() == "1":
-            self._load_biogpt_fallback(torch)
-            return self
+def build_target_inference_prompt(mechanism_description: str) -> str:
+    return f"""You are a translational bioinformatics expert.
 
-        try:
-            self.tokenizer = AutoTokenizer.from_pretrained(self.primary_model_name)
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.primary_model_name,
-                torch_dtype=torch.float32,
-                low_cpu_mem_usage=True,
-            )
-            self.model = self.model.to(self.device)
-            self.model.eval()
-            self.active_model_name = self.primary_model_name
+Input disease mechanism description:
+{mechanism_description}
 
-            if not self._passes_test_inference():
-                self._load_biogpt_fallback(torch)
-        except Exception:
-            self._load_biogpt_fallback(torch)
+Identify exactly 3 candidate protein targets that are mechanistically plausible and have known approved drugs in ChEMBL.
+Use specific HGNC gene symbols and include UniProt accession IDs.
 
-        return self
+Return output in this exact structure:
+TARGET 1:
+Gene: [HGNC gene symbol]
+UniProt: [UniProt accession ID]
+Rationale: [1 sentence]
 
-    def _select_device(self, torch_module: Any) -> Any:
-        try:
-            import intel_extension_for_pytorch  # noqa: F401
+TARGET 2:
+Gene: [HGNC gene symbol]
+UniProt: [UniProt accession ID]
+Rationale: [1 sentence]
 
-            if hasattr(torch_module, "xpu") and torch_module.xpu.is_available():
-                self.acceleration_status = "Intel Arc XPU backend detected — using IPEX acceleration"
-                return torch_module.device("xpu")
-            self.acceleration_status = "IPEX import succeeded but XPU is unavailable — using CPU"
-        except Exception as exc:
-            self.acceleration_status = f"IPEX not available — falling back to CPU inference ({exc})"
+TARGET 3:
+Gene: [HGNC gene symbol]
+UniProt: [UniProt accession ID]
+Rationale: [1 sentence]
 
-        return torch_module.device("cpu")
-
-    def _load_biogpt_fallback(self, torch_module: Any) -> None:
-        from transformers import BioGptForCausalLM, BioGptTokenizer
-
-        self.tokenizer = BioGptTokenizer.from_pretrained(self.fallback_model_name)
-        self.model = BioGptForCausalLM.from_pretrained(self.fallback_model_name)
-        self.model = self.model.to(self.device or torch_module.device("cpu"))
-        self.model.eval()
-        self.active_model_name = self.fallback_model_name
-
-    def _passes_test_inference(self) -> bool:
-        test_prompt = """
-Drug: Metformin
-Target: KRAS G12D mutation
-Disease: Pancreatic Cancer
-IC50: 8.3 µM
-
-Generate a 3-sentence mechanistic repurposing rationale:
+Also return strict JSON with this shape:
+{{
+  "targets": [
+    {{"gene":"...", "uniprot_id":"...", "rationale":"..."}},
+    {{"gene":"...", "uniprot_id":"...", "rationale":"..."}},
+    {{"gene":"...", "uniprot_id":"...", "rationale":"..."}}
+  ]
+}}
 """
-        result = self.generate(
-            test_prompt,
-            max_new_tokens=int(os.getenv("CHEMBRAIN_MODEL_TEST_TOKENS", "200")),
+
+
+def parse_target_inference_output(raw_output: str) -> list[dict]:
+    # Prefer strict JSON when available.
+    try:
+        parsed = json.loads(raw_output)
+        targets = parsed.get("targets", []) if isinstance(parsed, dict) else []
+        if isinstance(targets, list):
+            normalized = []
+            for target in targets:
+                if not isinstance(target, dict):
+                    continue
+                gene = str(target.get("gene", "")).strip()
+                uniprot_id = str(target.get("uniprot_id", "")).strip()
+                rationale = str(target.get("rationale", "")).strip()
+                if gene and uniprot_id and rationale:
+                    normalized.append(
+                        {"gene": gene, "uniprot_id": uniprot_id, "rationale": rationale}
+                    )
+            if normalized:
+                return normalized
+    except Exception:
+        pass
+
+    targets: list[dict] = []
+    blocks = re.split(r"(?im)^\s*TARGET\s+\d+\s*:\s*$", raw_output)
+    for block in blocks:
+        segment = block.strip()
+        if not segment:
+            continue
+
+        gene_match = re.search(r"(?im)^\s*Gene\s*:\s*(.+?)\s*$", segment)
+        uniprot_match = re.search(r"(?im)^\s*UniProt\s*:\s*(.+?)\s*$", segment)
+        rationale_match = re.search(r"(?im)^\s*Rationale\s*:\s*(.+?)\s*$", segment)
+
+        if not (gene_match and uniprot_match and rationale_match):
+            continue
+
+        gene = gene_match.group(1).strip()
+        uniprot_id = uniprot_match.group(1).strip()
+        rationale = rationale_match.group(1).strip()
+        if not (gene and uniprot_id and rationale):
+            continue
+
+        targets.append(
+            {
+                "gene": gene,
+                "uniprot_id": uniprot_id,
+                "rationale": rationale,
+            }
         )
-        result_lower = result.lower()
-        repeated_lines = [
-            "drug: metformin",
-            "target: kras g12d mutation",
-            "disease: pancreatic cancer",
-            "ic50: 8.3",
-        ]
-        pathway_terms = ("ras", "mapk", "erk", "pi3k", "ampk", "mtor", "kras")
-        biomedical_terms = ("mutation", "pathway", "signaling", "inhibition", "proliferation")
 
-        return (
-            any(term in result_lower for term in pathway_terms)
-            and any(term in result_lower for term in biomedical_terms)
-            and not any(line in result_lower for line in repeated_lines)
-        )
-
-    def generate(
-        self,
-        prompt: str,
-        *,
-        max_new_tokens: int = 350,
-        temperature: float = 0.3,
-        top_p: float = 0.9,
-        repetition_penalty: float = 1.2,
-    ) -> str:
-        self.load()
-
-        import torch
-
-        inputs = self.tokenizer(
-            prompt,
-            return_tensors="pt",
-            truncation=True,
-            max_length=int(os.getenv("CHEMBRAIN_MAX_INPUT_TOKENS", "512")),
-        ).to(self.device)
-
-        eos_token_id = self.tokenizer.eos_token_id
-        pad_token_id = self.tokenizer.pad_token_id or eos_token_id
-
-        with torch.no_grad():
-            outputs = self.model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                temperature=temperature,
-                top_p=top_p,
-                repetition_penalty=repetition_penalty,
-                do_sample=True,
-                pad_token_id=pad_token_id,
-                eos_token_id=eos_token_id,
-            )
-
-        generated_tokens = outputs[0][inputs["input_ids"].shape[1] :]
-        return self.tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
-
-
-_RUNTIME = ModelRuntime()
+    return targets
 
 
 def generate_text(prompt: str) -> str:
-    return _RUNTIME.generate(prompt)
+    prompt_budget = int(os.getenv("CHEMBRAIN_OLLAMA_MAX_PROMPTS_PER_MIN", "0"))
+    if prompt_budget > 0:
+        now = time.time()
+        while _OLLAMA_PROMPT_TIMESTAMPS and now - _OLLAMA_PROMPT_TIMESTAMPS[0] > 60:
+            _OLLAMA_PROMPT_TIMESTAMPS.popleft()
+        if len(_OLLAMA_PROMPT_TIMESTAMPS) >= prompt_budget:
+            raise RuntimeError(
+                f"Ollama prompt budget exceeded ({prompt_budget}/min). Retry later."
+            )
+        _OLLAMA_PROMPT_TIMESTAMPS.append(now)
+
+    timeout_seconds = int(os.getenv("CHEMBRAIN_OLLAMA_TIMEOUT_SEC", "300"))
+    payload = {
+        "model": _OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "options": {
+            "temperature": 0.3,
+            "top_p": 0.9,
+            "num_predict": 350,
+            "repeat_penalty": 1.2,
+        },
+    }
+    attempts = max(1, int(os.getenv("CHEMBRAIN_OLLAMA_RETRIES", "2")))
+    backoff_seconds = float(os.getenv("CHEMBRAIN_OLLAMA_BACKOFF_SEC", "1.2"))
+    last_error: Exception | None = None
+
+    for attempt in range(1, attempts + 1):
+        try:
+            response = requests.post(_OLLAMA_URL, json=payload, timeout=timeout_seconds)
+            response.raise_for_status()
+            data = response.json()
+            return str(data.get("response", "")).strip()
+        except requests.exceptions.ConnectionError as exc:
+            last_error = exc
+            if attempt == attempts:
+                raise RuntimeError(
+                    "Could not connect to Ollama at "
+                    f"{_OLLAMA_URL}. Start Ollama with `ollama serve` and verify the model "
+                    f"`{_OLLAMA_MODEL}` is available via `ollama pull {_OLLAMA_MODEL}`."
+                ) from exc
+        except requests.exceptions.Timeout as exc:
+            last_error = exc
+            if attempt == attempts:
+                raise RuntimeError(
+                    "Ollama request timed out. Ensure Ollama is running, reduce load, or increase "
+                    "the timeout via `CHEMBRAIN_OLLAMA_TIMEOUT_SEC`."
+                ) from exc
+        except requests.exceptions.RequestException as exc:
+            last_error = exc
+            if attempt == attempts:
+                raise RuntimeError(f"Ollama request failed: {exc}") from exc
+
+        time.sleep(backoff_seconds * attempt)
+
+    raise RuntimeError(f"Ollama request failed after retries: {last_error}")
 
 
 def clean_output(text: str) -> str:
@@ -575,7 +616,7 @@ def generate_visualization_html(
 <div style="display:flex; gap:20px; justify-content:center; align-items:flex-start; padding:16px;">
   <div style="flex:1; text-align:center;">
     <h4 style="font-family:monospace; color:#00ff99;">{drug_name} — {formula}</h4>
-    <div id="drug-viewer" style="width:100%; height:400px; border:1px solid #333; border-radius:8px;"></div>
+    <div id="drug-viewer" style="width:100%; height:400px; border:1px solid #333; border-radius:8px; position:relative; overflow:hidden;"></div>
     <p style="font-size:11px; color:#888; margin-top:6px;">
       MW: {descriptors['molecular_weight']} Da &nbsp;|&nbsp;
       H-Bond Donors: {descriptors['h_bond_donors']} &nbsp;|&nbsp;
@@ -586,7 +627,7 @@ def generate_visualization_html(
 
   <div style="flex:1; text-align:center;">
     <h4 style="font-family:monospace; color:#ff6699;">{target_name} — PDB: {pdb_id}</h4>
-    <div id="protein-viewer" style="width:100%; height:400px; border:1px solid #333; border-radius:8px;"></div>
+    <div id="protein-viewer" style="width:100%; height:400px; border:1px solid #333; border-radius:8px; position:relative; overflow:hidden;"></div>
     <p style="font-size:11px; color:#888; margin-top:6px;">
       Binding residues highlighted: {residue_text}
     </p>
@@ -604,7 +645,9 @@ def generate_visualization_html(
     stick: {{ colorscheme: 'Jmol', radius: 0.15 }},
     sphere: {{ colorscheme: 'Jmol', scale: 0.3 }}
   }});
+  drugViewer.center();
   drugViewer.zoomTo();
+  drugViewer.resize();
   drugViewer.spin('y', 0.5);
   drugViewer.render();
 
@@ -629,7 +672,9 @@ def generate_visualization_html(
     );
   }});
 
+  proteinViewer.center();
   proteinViewer.zoomTo();
+  proteinViewer.resize();
   proteinViewer.spin('y', 0.3);
   proteinViewer.render();
 </script>
@@ -778,6 +823,20 @@ def validate_simulation_narrative(simulation_narrative: str) -> dict[str, Any]:
     }
 
 
+def validate_rationale_quality(rationale: str, context: dict) -> dict:
+    rationale_lower = rationale.lower()
+    target_pathway_segment = str(context.get("target_pathway", "")).split("→")[0].split("->")[0].strip().lower()
+    drug_name = str(context.get("drug_name", "")).strip().lower()
+
+    return {
+        "mentions_target_pathway": bool(target_pathway_segment and target_pathway_segment in rationale_lower),
+        "mentions_drug_name": bool(drug_name and drug_name in rationale_lower),
+        "mentions_binding_signal": any(token in rationale_lower for token in ["ic50", "binding", "affinity", "µm", "nm", "ki"]),
+        "mentions_risk": any(token in rationale_lower for token in ["risk", "adverse", "toxicity", "caution", "limit"]),
+        "appropriate_length": 100 <= len(rationale) <= 800,
+    }
+
+
 def generate_drug_explanations(context: dict[str, Any]) -> dict[str, Any]:
     """Master inference function for one structured drug candidate."""
 
@@ -811,7 +870,7 @@ def generate_drug_explanations(context: dict[str, Any]) -> dict[str, Any]:
     simulation_narrative = clean_output(generate_text(build_simulation_prompt(context)))
     bond_summary = extract_bond_summary(reaction_brief)
 
-    return {
+    output = {
         "mechanistic_rationale": rationale,
         "reaction_brief": reaction_brief,
         "simulation": {
@@ -823,8 +882,13 @@ def generate_drug_explanations(context: dict[str, Any]) -> dict[str, Any]:
         },
         "bond_summary": bond_summary,
         "model": {
-            "name": _RUNTIME.active_model_name,
-            "device": str(_RUNTIME.device),
-            "acceleration_status": _RUNTIME.acceleration_status,
+            "name": _OLLAMA_MODEL,
+            "device": "Intel Arc GPU (via Ollama)",
+            "acceleration_status": "Ollama local inference — Intel Arc OneAPI backend",
         },
     }
+
+    if bool(context.get("ai_mode")):
+        output["research_synthesis"] = clean_output(generate_text(build_research_synthesis_prompt(context)))
+
+    return output

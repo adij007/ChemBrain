@@ -1,0 +1,39 @@
+{
+  "disease": "breast cancer",
+  "source": "cache",
+  "candidates": [
+    {
+      "drug": "Tamoxifen",
+      "approved_for": "Hormone receptor-positive breast cancer",
+      "target": "Estrogen receptor alpha",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.9,
+      "safety": "yellow",
+      "composite_score": 0.81,
+      "rationale": "Tamoxifen is included as a strong positive-control candidate for breast cancer because estrogen receptor signaling is a central therapeutic axis in hormone receptor-positive disease. Its presence validates the disease-target-drug workflow for a well-known oncology case. It should be presented as known therapy context, not a newly discovered candidate.",
+      "reaction_brief": "Tamoxifen binds estrogen receptor alpha and changes receptor conformation, altering cofactor recruitment and transcriptional signaling. This can reduce estrogen-driven growth signaling in hormone-sensitive tumor cells. The prototype summarizes established receptor pharmacology rather than new structural modeling.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tamoxifen/PNG",
+      "safety_detail": "Known risks include thromboembolism, hot flashes, and endometrial effects.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Metformin",
+      "approved_for": "Type 2 diabetes",
+      "target": "AMPK / metabolic signaling",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.62,
+      "safety": "green",
+      "composite_score": 0.6,
+      "rationale": "Metformin is often discussed as an oncology repurposing hypothesis because it affects cellular metabolism and AMPK-related signaling. For breast cancer, it is a useful demo candidate showing how an approved non-cancer drug can be surfaced for further investigation. The evidence should be described as hypothesis-generating and mixed.",
+      "reaction_brief": "Metformin's polar biguanide chemistry supports pathway-level effects around mitochondrial and AMPK-linked metabolic stress. In this prototype, the interaction is not claimed as a validated tumor-target binding event. The downstream hypothesis is reduced growth-supporting metabolic signaling.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/metformin/PNG",
+      "safety_detail": "Generally well characterized; lactic acidosis is a rare but serious risk in vulnerable patients.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    }
+  ],
+  "warnings": [
+    "Cached demo disease; not clinical recommendation."
+  ]
+}

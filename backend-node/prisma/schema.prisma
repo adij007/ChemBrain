@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  passwordHash String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  profile      Profile?
+  roles        UserRole[]
+  programs     Program[]
+}
+
+model Profile {
+  id          String   @id
+  user        User     @relation(fields: [id], references: [id], onDelete: Cascade)
+  displayName String?
+  email       String?
+  createdAt   DateTime @default(now())
+}
+
+model UserRole {
+  id        String   @id @default(uuid())
+  userId    String
+  role      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Program {
+  id          String   @id @default(uuid())
+  name        String
+  diseaseArea String
+  description String?
+  status      String   @default("draft")
+  ownerId     String?
+  owner       User?    @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  candidates  Candidate[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Candidate {
+  id              String           @id @default(uuid())
+  programId       String?
+  program         Program?         @relation(fields: [programId], references: [id], onDelete: SetNull)
+  name            String
+  target          String
+  diseaseArea     String?
+  mechanism       String?
+  confidenceScore Float            @default(0)
+  riskLevel       String           @default("medium")
+  evidenceTraces  EvidenceTrace[]
+  synthesisOutput SynthesisOutput[]
+  simulationRuns  SimulationRun[]
+  createdAt       DateTime         @default(now())
+}
+
+model EvidenceTrace {
+  id              String   @id @default(uuid())
+  candidateId     String
+  candidate       Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  sourceType      String
+  citation        String
+  url             String?
+  uncertaintyFlag Boolean  @default(false)
+  retrievedAt     DateTime @default(now())
+}
+
+model SynthesisOutput {
+  id              String   @id @default(uuid())
+  candidateId     String
+  candidate       Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  researchSummary String?
+  reactionBrief   String?
+  qualityChecks   Json
+  createdAt       DateTime @default(now())
+}
+
+model SimulationRun {
+  id               String          @id @default(uuid())
+  candidateId      String?
+  candidate        Candidate?      @relation(fields: [candidateId], references: [id], onDelete: SetNull)
+  baselineId       String?
+  baseline         SimulationRun?  @relation("SimulationBaseline", fields: [baselineId], references: [id], onDelete: SetNull)
+  derivedRuns      SimulationRun[] @relation("SimulationBaseline")
+  params           Json
+  narrative        String?
+  formula          String?
+  validationStatus String          @default("pending")
+  createdAt        DateTime        @default(now())
+}

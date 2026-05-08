@@ -1,0 +1,859 @@
+{
+  "users": [
+    {
+      "id": "e294156f-cb98-42f9-a02e-11435a5bd2d9",
+      "email": "admin@chembrain.local",
+      "passwordHash": "$2a$12$bfMNL6CYOE8ZJTJN1FQCjO5RD83PByU/DK5W8p7Lh96wztpBPKpAG",
+      "createdAt": "2026-05-07T16:05:43.506Z",
+      "updatedAt": "2026-05-07T16:05:43.506Z"
+    },
+    {
+      "id": "7d2110ca-15ce-451a-b795-808b0637c040",
+      "email": "repair-93d820cb-745b-4027-b33a-baf88befa3d1@chembrain.local",
+      "passwordHash": "$2a$12$8Ci2SHPZ7bqlU374TwsFeeUGMiWQU6Un4nD7LVM/xNSCM1DtlvMaa",
+      "createdAt": "2026-05-08T13:22:33.091Z",
+      "updatedAt": "2026-05-08T13:22:33.091Z"
+    },
+    {
+      "id": "d42f1c1a-a703-4bae-9d94-ccb5f39bc8e8",
+      "email": "repair-706b3223-20d1-4cdd-9c6b-0408d6d8d996@chembrain.local",
+      "passwordHash": "$2a$12$Hv0jTCjaFIfIbFCCME89teidBC/t0wE3lg5EJSw0qRST4RxBDAqUi",
+      "createdAt": "2026-05-08T13:23:18.643Z",
+      "updatedAt": "2026-05-08T13:23:18.643Z"
+    },
+    {
+      "id": "5abdab5a-e8e2-4805-809e-fbec6da4588f",
+      "email": "validation-1778247148358@chembrain.local",
+      "passwordHash": "$2a$12$fzJtay2IK0KM5vf3v6WC9uvR7Vt7b.RVmreIt83goYoUTeVgjmvmK",
+      "createdAt": "2026-05-08T13:32:28.908Z",
+      "updatedAt": "2026-05-08T13:32:28.908Z"
+    },
+    {
+      "id": "c18d8fc3-23f5-486e-8172-cb5f80beef6c",
+      "email": "validation-1778247166819@chembrain.local",
+      "passwordHash": "$2a$12$jJ4KYsoK5jlGiqtz4fZbqukVecvpwZkUjkJXKxgN4iyR6XuJNwkSS",
+      "createdAt": "2026-05-08T13:32:47.930Z",
+      "updatedAt": "2026-05-08T13:32:47.930Z"
+    },
+    {
+      "id": "b1418589-2053-4268-abfe-dbdac654f535",
+      "email": "sim-1778247177778@chembrain.local",
+      "passwordHash": "$2a$12$fltT51djZu.prk.fvDMtleBTZQIS.KwAYsg0W2VHQjgji4.hf6jAm",
+      "createdAt": "2026-05-08T13:32:59.492Z",
+      "updatedAt": "2026-05-08T13:32:59.492Z"
+    },
+    {
+      "id": "edd16caf-8897-447b-8e0e-75814759cf3f",
+      "email": "viz-1778251511307@chembrain.local",
+      "passwordHash": "$2a$12$qRt1uGvoTAfYR/w.hxOOpuSNwyCx6eutQPKPU0NF8jc7yz4JJk8oe",
+      "createdAt": "2026-05-08T14:45:12.284Z",
+      "updatedAt": "2026-05-08T14:45:12.284Z"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "e294156f-cb98-42f9-a02e-11435a5bd2d9",
+      "displayName": "ChemBrain Admin",
+      "email": "admin@chembrain.local",
+      "createdAt": "2026-05-07T16:05:43.506Z"
+    },
+    {
+      "id": "7d2110ca-15ce-451a-b795-808b0637c040",
+      "displayName": "Repair Agent",
+      "email": "repair-93d820cb-745b-4027-b33a-baf88befa3d1@chembrain.local",
+      "createdAt": "2026-05-08T13:22:33.091Z"
+    },
+    {
+      "id": "d42f1c1a-a703-4bae-9d94-ccb5f39bc8e8",
+      "displayName": "Repair Agent",
+      "email": "repair-706b3223-20d1-4cdd-9c6b-0408d6d8d996@chembrain.local",
+      "createdAt": "2026-05-08T13:23:18.643Z"
+    },
+    {
+      "id": "5abdab5a-e8e2-4805-809e-fbec6da4588f",
+      "displayName": "Validation User",
+      "email": "validation-1778247148358@chembrain.local",
+      "createdAt": "2026-05-08T13:32:28.908Z"
+    },
+    {
+      "id": "c18d8fc3-23f5-486e-8172-cb5f80beef6c",
+      "displayName": "Validation User",
+      "email": "validation-1778247166819@chembrain.local",
+      "createdAt": "2026-05-08T13:32:47.930Z"
+    },
+    {
+      "id": "b1418589-2053-4268-abfe-dbdac654f535",
+      "displayName": "Simulation User",
+      "email": "sim-1778247177778@chembrain.local",
+      "createdAt": "2026-05-08T13:32:59.492Z"
+    },
+    {
+      "id": "edd16caf-8897-447b-8e0e-75814759cf3f",
+      "displayName": "Viz User",
+      "email": "viz-1778251511307@chembrain.local",
+      "createdAt": "2026-05-08T14:45:12.284Z"
+    }
+  ],
+  "userRoles": [
+    {
+      "id": "9eb80ba7-6980-4e8d-8d2a-7ac9b7f5f4cf",
+      "userId": "e294156f-cb98-42f9-a02e-11435a5bd2d9",
+      "role": "admin",
+      "createdAt": "2026-05-07T16:05:43.506Z"
+    },
+    {
+      "id": "6df27865-e254-4ec9-a1c4-178f42d8f505",
+      "userId": "7d2110ca-15ce-451a-b795-808b0637c040",
+      "role": "scientist",
+      "createdAt": "2026-05-08T13:22:33.091Z"
+    },
+    {
+      "id": "28277ffb-9923-4eaa-a29e-98f979d45c2e",
+      "userId": "d42f1c1a-a703-4bae-9d94-ccb5f39bc8e8",
+      "role": "scientist",
+      "createdAt": "2026-05-08T13:23:18.643Z"
+    },
+    {
+      "id": "229e0914-b10f-4c9d-88fe-c4ce7f6dd6bf",
+      "userId": "5abdab5a-e8e2-4805-809e-fbec6da4588f",
+      "role": "scientist",
+      "createdAt": "2026-05-08T13:32:28.908Z"
+    },
+    {
+      "id": "75bac52c-830e-4640-b549-1c7e36122af3",
+      "userId": "c18d8fc3-23f5-486e-8172-cb5f80beef6c",
+      "role": "scientist",
+      "createdAt": "2026-05-08T13:32:47.930Z"
+    },
+    {
+      "id": "e63170b0-37f5-4a2e-aef3-3f76c68d748f",
+      "userId": "b1418589-2053-4268-abfe-dbdac654f535",
+      "role": "scientist",
+      "createdAt": "2026-05-08T13:32:59.492Z"
+    },
+    {
+      "id": "49cb3d19-607b-4a88-9eab-c54b11b2e5ef",
+      "userId": "edd16caf-8897-447b-8e0e-75814759cf3f",
+      "role": "scientist",
+      "createdAt": "2026-05-08T14:45:12.284Z"
+    }
+  ],
+  "programs": [
+    {
+      "id": "f697c590-39ea-4600-81ae-7e1187ed8f32",
+      "name": "Connectivity Test Program",
+      "diseaseArea": "COVID-19",
+      "description": "db link test",
+      "ownerId": "e294156f-cb98-42f9-a02e-11435a5bd2d9",
+      "status": "in_review",
+      "createdAt": "2026-05-07T16:22:29.915Z",
+      "updatedAt": "2026-05-07T16:22:29.936Z"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "programId": "f697c590-39ea-4600-81ae-7e1187ed8f32",
+      "name": "Nirmatrelvir Repurposing Signal",
+      "target": "SARS-CoV-2 Mpro",
+      "diseaseArea": "COVID-19",
+      "mechanism": "Protease inhibition with antiviral replication suppression profile.",
+      "confidenceScore": 0.88,
+      "riskLevel": "medium",
+      "createdAt": "2026-05-07T16:16:31.602Z"
+    },
+    {
+      "id": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "programId": null,
+      "name": "KRAS G12C Covalent Lead",
+      "target": "KRAS G12C",
+      "diseaseArea": "Oncology",
+      "mechanism": "Irreversible cysteine-targeted inhibition of mutant KRAS signaling.",
+      "confidenceScore": 0.92,
+      "riskLevel": "low",
+      "createdAt": "2026-05-07T16:16:31.602Z"
+    },
+    {
+      "id": "db1c5810-1798-483d-bcbe-6eb74736bdc8",
+      "programId": "f697c590-39ea-4600-81ae-7e1187ed8f32",
+      "name": "Beta-lactam Sensitizer",
+      "target": "Penicillin-binding protein",
+      "diseaseArea": "Bacterial infection",
+      "mechanism": "Narrow-spectrum antibacterial peptidoglycan synthesis inhibition with Gram-positive coverage.",
+      "confidenceScore": 0.71,
+      "riskLevel": "medium",
+      "dataSource": "local_seed",
+      "approvedFor": "Serious bacterial infection",
+      "ic50": "MIC-range activity",
+      "evidenceScore": 0.62,
+      "dataConfidence": "Curated local demo evidence.",
+      "sourceUrls": [
+        "https://www.ncbi.nlm.nih.gov/"
+      ],
+      "pathogenContext": {
+        "organism_type": "bacteria",
+        "example": "Staphylococcus aureus"
+      },
+      "createdAt": "2026-05-08T13:20:28.161Z"
+    },
+    {
+      "id": "360c93b7-d1d4-4e76-9ea6-64591c91edef",
+      "programId": null,
+      "name": "Artemisinin Derivative Signal",
+      "target": "Plasmodium falciparum",
+      "diseaseArea": "Malaria parasitic infection",
+      "mechanism": "Antiparasitic endoperoxide radical damage to parasite membranes.",
+      "confidenceScore": 0.79,
+      "riskLevel": "high",
+      "dataSource": "local_seed",
+      "approvedFor": "Uncomplicated malaria",
+      "ic50": "phenotypic EC50",
+      "evidenceScore": 0.7,
+      "dataConfidence": "Curated local demo evidence.",
+      "sourceUrls": [
+        "https://www.who.int/"
+      ],
+      "pathogenContext": {
+        "organism_type": "parasite",
+        "strain": "Plasmodium falciparum"
+      },
+      "createdAt": "2026-05-08T13:20:28.161Z"
+    },
+    {
+      "id": "ccfc5e7a-0a29-4232-afff-8cef6d2636a8",
+      "programId": null,
+      "name": "Oseltamivir Viral Repurposing Control",
+      "target": "Influenza neuraminidase",
+      "diseaseArea": "Viral infection",
+      "mechanism": "Neuraminidase inhibition used as a deterministic viral-search control.",
+      "confidenceScore": 0.76,
+      "riskLevel": "medium",
+      "dataSource": "local_seed",
+      "approvedFor": "Influenza antiviral use",
+      "ic50": "curated antiviral activity",
+      "evidenceScore": 0.66,
+      "dataConfidence": "Curated local demo evidence.",
+      "sourceUrls": [
+        "https://pubmed.ncbi.nlm.nih.gov/"
+      ],
+      "pathogenContext": {
+        "organism_type": "virus",
+        "example": "Influenza A"
+      },
+      "createdAt": "2026-05-08T13:20:28.161Z"
+    }
+  ],
+  "evidenceTraces": [
+    {
+      "id": "93e1674c-e4fa-4c76-8cab-63d95b400b04",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "sourceType": "pubmed",
+      "citation": "Peer-reviewed antiviral evidence reports reduced SARS-CoV-2 viral replication in vitro.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "uncertaintyFlag": false,
+      "retrievedAt": "2026-05-07T16:16:31.602Z"
+    },
+    {
+      "id": "77d088c0-1fe1-43f4-b0b8-771acf5c3064",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "sourceType": "open_targets",
+      "citation": "Target-disease linkage supports coronavirus protease inhibition strategy.",
+      "url": "https://platform.opentargets.org/",
+      "uncertaintyFlag": false,
+      "retrievedAt": "2026-05-07T16:16:31.602Z"
+    }
+  ],
+  "synthesisOutputs": [
+    {
+      "id": "aa522306-24d1-497f-b2b5-2ba188e655a6",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "researchSummary": "Signal indicates plausible COVID-19 antiviral repositioning opportunity with moderate translational risk.",
+      "reactionBrief": "Primary value comes from accelerated antiviral pathway confidence and prior safety context.",
+      "qualityChecks": [
+        {
+          "check": "Evidence freshness",
+          "status": "pass"
+        },
+        {
+          "check": "Mechanism-target consistency",
+          "status": "pass"
+        },
+        {
+          "check": "Clinical transferability",
+          "status": "warn"
+        }
+      ],
+      "createdAt": "2026-05-07T16:16:31.602Z"
+    }
+  ],
+  "simulationRuns": [
+    {
+      "id": "78f7d841-4ff0-44e7-8e35-fab99060086d",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T16:14:22.354Z"
+    },
+    {
+      "id": "8775ce16-b911-4e0d-a88e-07f8b706f7ac",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T16:43:43.126Z"
+    },
+    {
+      "id": "7a609f8c-aba4-4851-b563-f942564dbe90",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 42000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 42000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T16:43:48.754Z"
+    },
+    {
+      "id": "c4edde5b-89a3-40a3-9d80-6fef5e2f22de",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T17:02:00.098Z"
+    },
+    {
+      "id": "7d6a8708-4b6d-47af-9776-e5f6933a66bc",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T17:02:14.960Z"
+    },
+    {
+      "id": "8c557377-aabd-4de8-9d02-7119aeb3383f",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": false
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T17:02:16.433Z"
+    },
+    {
+      "id": "b501194f-97a1-4c52-82ed-b007cf780357",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 320,
+        "steps": 5000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 5000 steps at 320K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T17:03:34.483Z"
+    },
+    {
+      "id": "7b729c17-ab03-4634-ace2-cb4c6dd06463",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-07T17:06:33.580Z"
+    },
+    {
+      "id": "ba0d340c-d50d-4235-8061-f02f09666894",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T11:52:49.204Z"
+    },
+    {
+      "id": "e3b24ee9-ec6d-4a7e-8670-b1ad38fbdfaf",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 400,
+        "steps": 46000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 46000 steps at 400K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T11:56:28.158Z"
+    },
+    {
+      "id": "ef31d445-8345-41a3-972d-5f0da0eb6d1d",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:19:49.340Z"
+    },
+    {
+      "id": "72b9879c-8dc9-4e52-a8fd-4d793618aa62",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": false
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:25:54.708Z"
+    },
+    {
+      "id": "d5c64d71-601a-4e8e-884e-833be3d0a086",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:26:30.334Z"
+    },
+    {
+      "id": "7a742adc-7c21-4a1d-9b95-4d498a197ad4",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:26:49.485Z"
+    },
+    {
+      "id": "e174cfa9-5997-4877-bdbf-a19fe349021e",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 350,
+        "steps": 30000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 30000 steps at 350K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:27:09.482Z"
+    },
+    {
+      "id": "bb69b568-0bdb-4e3d-8d9f-648f55310324",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 350,
+        "steps": 30000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 30000 steps at 350K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:27:10.851Z"
+    },
+    {
+      "id": "c8012209-5ce4-488f-8dec-cb3fd9074b0e",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 350,
+        "steps": 30000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 30000 steps at 350K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:27:32.787Z"
+    },
+    {
+      "id": "c4ef8ff2-ace0-41c9-8321-94605a4d15b0",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 350,
+        "steps": 30000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 30000 steps at 350K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:27:53.076Z"
+    },
+    {
+      "id": "71c12869-e5eb-440b-8b39-e50e341be9e8",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:28:47.203Z"
+    },
+    {
+      "id": "1e0596d3-6c7b-4914-a5c1-643a78404964",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:30:38.237Z"
+    },
+    {
+      "id": "b21f305e-3f49-4811-84e6-9dd4aac45872",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:30:39.556Z"
+    },
+    {
+      "id": "c0d2c90c-bf70-42b9-aa2f-b4816951045a",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:30:40.797Z"
+    },
+    {
+      "id": "b81cb332-8e6b-469e-955e-794e52104fa8",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:34:16.479Z"
+    },
+    {
+      "id": "d8f25084-e8d4-4fac-b558-9c589ce011dc",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:36:39.823Z"
+    },
+    {
+      "id": "78be1882-ab1a-4a59-a162-089b25034ce2",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:37:19.055Z"
+    },
+    {
+      "id": "df355cb2-7cc9-4a4c-931c-24f9b64c7629",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:37:20.388Z"
+    },
+    {
+      "id": "39af5294-7324-4dca-b4e9-3902ce453217",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:37:30.572Z"
+    },
+    {
+      "id": "b8a5f051-8457-4119-abdd-550907c76729",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:41:19.153Z"
+    },
+    {
+      "id": "a6852dc5-eff0-43d7-b187-241164dea353",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:41:40.745Z"
+    },
+    {
+      "id": "21daa188-5174-4807-9fd6-d4cb4a726fa6",
+      "candidateId": null,
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:41:48.121Z"
+    },
+    {
+      "id": "e009c944-4d07-4906-b958-9705449b5d97",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:41:50.460Z"
+    },
+    {
+      "id": "2478c2de-b7fb-4f11-9bf8-e1fe1d32f3a4",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true
+      },
+      "narrative": "Simulation completed for 10000 steps at 310K.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "createdAt": "2026-05-08T12:41:56.501Z"
+    },
+    {
+      "id": "8a415d04-b879-4537-98f1-2e0f2be7f01d",
+      "candidateId": "db1c5810-1798-483d-bcbe-6eb74736bdc8",
+      "baselineId": null,
+      "params": {
+        "llmMode": false,
+        "steps": 1000,
+        "temperature": 300,
+        "simulationMode": "demo_visualization"
+      },
+      "narrative": "Demo visualization completed. Candidate: Beta-lactam Sensitizer. Target: Penicillin-binding protein. Parameters: 1000 steps at 300K. This is not a molecular dynamics result; it is a deterministic demo run record.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "mode": "demo_visualization",
+      "isDemo": true,
+      "llm": {
+        "requested": false,
+        "used": false,
+        "model": "llama3:latest",
+        "latencyMs": 0,
+        "error": null
+      },
+      "createdAt": "2026-05-08T13:23:19.263Z"
+    },
+    {
+      "id": "ed1b401c-a924-42d2-8098-2ddba10a1431",
+      "candidateId": "9e06e64e-0b08-487c-a36d-ed39f857d491",
+      "baselineId": null,
+      "params": {
+        "llmMode": false,
+        "steps": 2500,
+        "temperature": 300,
+        "simulationMode": "demo_visualization"
+      },
+      "narrative": "Demo visualization completed. Candidate: KRAS G12C Covalent Lead. Target: KRAS G12C. Parameters: 2500 steps at 300K. This is not a molecular dynamics result; it is a deterministic demo run record.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "mode": "demo_visualization",
+      "isDemo": true,
+      "llm": {
+        "requested": false,
+        "used": false,
+        "model": "gpt-4o-mini",
+        "latencyMs": 0,
+        "error": null
+      },
+      "createdAt": "2026-05-08T13:32:59.601Z"
+    },
+    {
+      "id": "b7bca92d-8690-4df7-89ec-dcb4cc0f3146",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true,
+        "simulationMode": "demo_visualization"
+      },
+      "narrative": "**Simulation Narrative: Nirmatrelvir Repurposing Signal**\n\nIn this simulated scenario, we are exploring the potential of repurposing nirmatrelvir, a COVID-19 treatment, to target SARS-CoV-2 Mpro, a crucial enzyme involved in viral replication. SARS-CoV-2 Mpro is a key target for developing antiviral therapies against COVID-19.\n\n**Simulation Parameters:**\n\n* Temperature: 310 Kelvin (37°C)\n* Steps: 10,000\n* LLM Mode: Enabled\n\n**Visualization: A snapshot of the simulation**\n\nThe visualization depicts a molecular dynamics simulation of nirmatrelvir interacting with SARS-CoV-2 Mpro. This is a highly simplified, demo-style representation for illustrative purposes only.\n\nIn this simulation:\n\n* The purple molecule represents nirmatrelvir, repurposed as an inhibitor of SARS-CoV-2 Mpro.\n* The yellow structure represents SARS-CoV-2 Mpro, a crucial enzyme involved in viral replication.\n* The grey atoms represent the surrounding solvent and other molecules not explicitly shown.\n\n**Interaction Insights:**\n\nThe simulation suggests that nirmatrelvir interacts with SARS-CoV-2 Mpro through specific binding pockets, demonstrating potential efficacy as a COVID-19 treatment. This is purely a visualization for educational purposes; actual molecular dynamics simulations would require significant computational resources and expertise.\n\n**Important Note:**\n\nThis is a simulated scenario for demonstration purposes only. The scientific community should not draw conclusions or infer therapeutic potential based solely on this visualization. Rigorous experimental and computational research are necessary to validate the results of any novel treatment approach.\n\nIn this simulated environment, we see nirmatrelvir's potential binding affinity with SARS-CoV-2 Mpro, which could be indicative of a promising lead compound for further development. This simulation serves as an introductory showcase of molecular dynamics simulations in the context of COVID-19 research. Actual research should be conducted under the guidance of trained professionals and peer-reviewed rigorously.",
+      "formula": "C20H22FN5O2",
+      "validationStatus": "passed",
+      "mode": "demo_visualization",
+      "isDemo": true,
+      "llm": {
+        "requested": true,
+        "used": true,
+        "model": "llama3:latest",
+        "latencyMs": 56897,
+        "error": null
+      },
+      "createdAt": "2026-05-08T14:03:14.699Z"
+    },
+    {
+      "id": "f87259b1-e7d8-45a6-9000-579ec1a6040f",
+      "candidateId": "360c93b7-d1d4-4e76-9ea6-64591c91edef",
+      "baselineId": null,
+      "params": {
+        "temperature": 310,
+        "steps": 10000,
+        "llmMode": true,
+        "simulationMode": "demo_visualization"
+      },
+      "narrative": "Artemisinin derivative signal is previewing a 3D structure for in vitro molecular interaction simulation. This demo aims to explore binding affinity of candidate drug with Plasmodium falciparum, targeting malaria parasitic infection. Parameters: temperature set at 310K, simulation steps limited to 10,000, and LLM mode enabled.",
+      "formula": "C16H26O5",
+      "validationStatus": "passed",
+      "mode": "demo_visualization",
+      "isDemo": true,
+      "llm": {
+        "requested": true,
+        "used": true,
+        "model": "llama3:latest",
+        "latencyMs": 132387,
+        "error": null
+      },
+      "createdAt": "2026-05-08T14:21:04.192Z"
+    },
+    {
+      "id": "69678845-dd05-416a-b1a3-1d89394fd299",
+      "candidateId": "d934d624-3932-488d-a76e-8af489f6a5ff",
+      "baselineId": null,
+      "params": {
+        "llmMode": false,
+        "steps": 10000,
+        "temperature": 310,
+        "simulationMode": "demo_visualization"
+      },
+      "narrative": "Demo visualization completed. Candidate: Nirmatrelvir Repurposing Signal. Target: SARS-CoV-2 Mpro. Parameters: 10000 steps at 310K. This is not a molecular dynamics result; it is a deterministic demo run record.",
+      "formula": "C23H32F3N5O4",
+      "validationStatus": "passed",
+      "mode": "demo_visualization",
+      "isDemo": true,
+      "llm": {
+        "requested": false,
+        "used": false,
+        "model": "llama3:latest",
+        "latencyMs": 0,
+        "error": null
+      },
+      "createdAt": "2026-05-08T14:45:12.573Z"
+    }
+  ]
+}

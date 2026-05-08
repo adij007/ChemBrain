@@ -1,0 +1,39 @@
+{
+  "disease": "Parkinson's disease",
+  "source": "cache",
+  "candidates": [
+    {
+      "drug": "Selegiline",
+      "approved_for": "Parkinson's disease",
+      "target": "Monoamine oxidase B",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.86,
+      "safety": "green",
+      "composite_score": 0.8,
+      "rationale": "Selegiline is included as a positive-control Parkinson's candidate because it targets monoamine oxidase B, a clinically relevant enzyme in dopamine metabolism. Its approved status helps validate that the pipeline can surface known disease-relevant drugs. This is demo evidence, not a new treatment recommendation.",
+      "reaction_brief": "Selegiline forms strong enzyme-level interactions with MAO-B and reduces dopamine breakdown. That mechanism can increase available dopaminergic signaling in Parkinsonian motor circuits. The prototype brief relies on known pharmacology and should be validated by the science lead before presentation.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/selegiline/PNG",
+      "safety_detail": "Known risks include insomnia, nausea, orthostatic hypotension, and drug interactions.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Amantadine",
+      "approved_for": "Parkinson's disease and influenza A",
+      "target": "Dopaminergic and NMDA-related signaling",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.68,
+      "safety": "yellow",
+      "composite_score": 0.63,
+      "rationale": "Amantadine has clinical use in Parkinson's disease and is included as a known comparator in the prototype. Its mixed dopaminergic and NMDA-related effects make it relevant to movement symptoms and dyskinesia management. It ranks lower because the target story is less direct than MAO-B inhibition.",
+      "reaction_brief": "Amantadine is a compact amine-containing molecule with interactions that are often discussed at receptor and channel-function level. The prototype summarizes its likely biological effect as modulation of neurotransmission rather than confirmed direct binding to a single disease target. Downstream, this may influence motor control signaling.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/amantadine/PNG",
+      "safety_detail": "Can cause confusion, hallucinations, ankle edema, and livedo reticularis.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    }
+  ],
+  "warnings": [
+    "Cached demo disease; not clinical recommendation."
+  ]
+}

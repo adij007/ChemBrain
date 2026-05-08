@@ -9,3 +9,21 @@
 demo_output/
 __pycache__/
 *.py[cod]
+
+# Node
+node_modules/
+dist/
+.next/
+.vite-cache/
+.tanstack/
+.wrangler/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db

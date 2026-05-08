@@ -41,3 +41,10 @@ STEP 1..5, each with Formula and Explanation lines
 - The left viewer renders the RDKit-generated MOL block.
 - The right viewer renders the RCSB PDB file and highlights normalized residues like `Gly12 -> GLY 12`.
 - If a viewer is blank, first confirm the 3Dmol CDN is reachable from the demo browser.
+
+## Disease / pathogen catalog UI
+
+- **CLI reports**: \un_demo.py --disease ...\ writes \demo_output/disease_<slug>/index.html\ plus per-drug \drug_XX_<id>.html\. Index lists heuristic ranks; detail pages reuse the same HTML embedding rules as single-drug mode.
+- **Structure vs LLM**: \--skip-llm\ renders formula summary + \simulation.visualization_html\-equivalent 3D panels only. Full runs embed LLM sections before the What This Is Showing block.
+- **Web**: \python -m webapp.server\ exposes \/\ search, \/condition/<id>\ ranked table, and \/drug/<drug_id>\ (append \?llm=1\ for full \generate_drug_explanations\ output).
+

@@ -1,0 +1,62 @@
+{
+  "disease": "diabetes",
+  "source": "live",
+  "candidates": [
+    {
+      "drug": "Repaglinide",
+      "approved_for": "Approved drug, first approval 1997",
+      "target": "ATP binding cassette subfamily C member 8",
+      "ic50": "Kd 50.0 nM",
+      "evidence_score": 0.92,
+      "safety": "yellow",
+      "composite_score": 0.62,
+      "rationale": "Repaglinide is an approved drug with ChEMBL activity reported against ATP binding cassette subfamily C member 8, a target associated with diabetes by Open Targets. The target evidence score is 0.92, and the measured activity (Kd 50.0 nM) makes this a prototype repurposing hypothesis worth scientific review.",
+      "reaction_brief": "PubChem structure data and ChEMBL assay evidence support a molecular-context brief for Repaglinide. For this prototype, the interaction is summarized from assay-level binding data rather than validated docking or molecular dynamics. The likely downstream relevance is mediated through ATP binding cassette subfamily C member 8 biology and pathway context from UniProt.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Repaglinide/PNG",
+      "safety_detail": "Commonly reported OpenFDA reactions include HYPOGLYCAEMIA, ACUTE KIDNEY INJURY, DRUG INTERACTION.",
+      "data_confidence": "Live prototype result from Open Targets, ChEMBL, PubChem, and OpenFDA.",
+      "binding_site": "RCSB binding-site lookup not resolved for ABCC8; prototype uses pathway and assay-level evidence instead.",
+      "source_urls": [
+        "https://platform.opentargets.org/",
+        "https://www.ebi.ac.uk/chembl/",
+        "https://pubchem.ncbi.nlm.nih.gov/",
+        "https://open.fda.gov/apis/drug/event/"
+      ],
+      "raw": {
+        "target": {
+          "id": "ENSG00000006071",
+          "symbol": "ABCC8",
+          "name": "ATP binding cassette subfamily C member 8",
+          "evidence_score": 0.92,
+          "uniprot_id": "Q09428"
+        },
+        "protein": {
+          "accession": "Q09428",
+          "protein_name": "ATP-binding cassette sub-family C member 8",
+          "function": "Regulator subunit of pancreatic ATP-sensitive potassium channel (KATP), playing a major role in the regulation of insulin release. In pancreatic cells, it forms KATP channels with KCNJ11; KCNJ11 forms the channel pore while ABCC8 is required for activation and regulation",
+          "pathways": []
+        },
+        "activity": {
+          "drug": "Repaglinide",
+          "molecule_chembl_id": "CHEMBL1272",
+          "approved_for": "Approved drug, first approval 1997",
+          "target": "ABCC8",
+          "target_chembl_id": "CHEMBL2071",
+          "standard_type": "Kd",
+          "standard_value": "50.0",
+          "standard_units": "nM",
+          "binding_score": 0.715,
+          "assay_description": "Displacement of [3H]glibenclamide from COS-1 cells expressing Sulfonylurea receptor 1 (SUR-1)"
+        },
+        "pubchem": {
+          "cid": 65981,
+          "canonical_smiles": null,
+          "isomeric_smiles": null,
+          "molecular_formula": "C27H36N2O4",
+          "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Repaglinide/PNG"
+        }
+      }
+    }
+  ],
+  "warnings": []
+}

@@ -1,9 +1,3 @@
-transformers
-torch
-accelerate
-sentencepiece
-huggingface_hub
-intel-extension-for-pytorch
 rdkit-pypi
 py3Dmol
 scipy
@@ -11,5 +5,5 @@ numpy
 matplotlib
 biopython
 requests
-sacremoses
 chardet
+flask

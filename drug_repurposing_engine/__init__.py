@@ -1,11 +1,13 @@
 """Drug repurposing inference layer for biomedical demo candidates."""
 
+from .catalog import Catalog, Condition, DrugEntry, DrugLink, context_for_inference, load_catalog, search_conditions
 from .inference import (
     APPROVED_OUTPUTS,
-    ModelRuntime,
     build_rationale_prompt,
+    build_research_synthesis_prompt,
     build_reaction_prompt,
     build_simulation_prompt,
+    build_target_inference_prompt,
     clean_output,
     extract_bond_summary,
     fetch_protein_structure,
@@ -14,17 +16,26 @@ from .inference import (
     generate_formula_block,
     generate_text,
     generate_visualization_html,
+    parse_target_inference_output,
     validate_binding_residues_against_pdb,
     validate_context,
+    validate_rationale_quality,
 )
+from .ranker import rank_drug_candidates
 
 __all__ = [
     "APPROVED_OUTPUTS",
-    "ModelRuntime",
+    "Catalog",
+    "Condition",
+    "DrugEntry",
+    "DrugLink",
     "build_rationale_prompt",
+    "build_research_synthesis_prompt",
     "build_reaction_prompt",
     "build_simulation_prompt",
+    "build_target_inference_prompt",
     "clean_output",
+    "context_for_inference",
     "extract_bond_summary",
     "fetch_protein_structure",
     "generate_drug_3d",
@@ -32,6 +43,11 @@ __all__ = [
     "generate_formula_block",
     "generate_text",
     "generate_visualization_html",
+    "load_catalog",
+    "parse_target_inference_output",
+    "rank_drug_candidates",
+    "search_conditions",
     "validate_binding_residues_against_pdb",
     "validate_context",
+    "validate_rationale_quality",
 ]

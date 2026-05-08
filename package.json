@@ -1,0 +1,22 @@
+{
+  "name": "chembrain-v2",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "preweb": "node scripts/patch-vite-dev.js",
+    "web": "npm run dev -w apps/web",
+    "api": "npm run dev -w apps/api",
+    "dev:web": "npm run web",
+    "dev:api": "npm run api",
+    "build:web": "npm run build -w apps/web",
+    "build:api": "npm run build -w apps/api",
+    "test:web": "npm run test -w apps/web",
+    "lint:web": "npm run lint -w apps/web",
+    "typecheck:api": "npm run build -w apps/api",
+    "typecheck:web": "npm run build -w apps/web"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "disease": "pancreatic cancer",
+  "source": "cache",
+  "candidates": [
+    {
+      "drug": "Metformin",
+      "approved_for": "Type 2 diabetes",
+      "target": "AMPK / mTOR signaling axis",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.91,
+      "safety": "green",
+      "composite_score": 0.85,
+      "rationale": "Metformin is a widely used diabetes drug with literature support around AMPK activation and downstream suppression of mTOR signaling, a growth pathway relevant to pancreatic cancer biology. Its approved status and known safety profile make it a practical repurposing candidate to investigate further. This prototype result should be treated as hypothesis generation, not clinical evidence.",
+      "reaction_brief": "Metformin's biguanide group is highly polar and can participate in hydrogen-bonding and electrostatic interactions in protein binding environments. In this prototype explanation, the relevant biological effect is modeled at the pathway level rather than as confirmed direct binding to KRAS. The proposed downstream effect is reduced growth signaling through AMPK-mediated metabolic stress and mTOR suppression.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/metformin/PNG",
+      "safety_detail": "Generally well characterized; lactic acidosis is a rare but serious risk in vulnerable patients.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Itraconazole",
+      "approved_for": "Fungal infections",
+      "target": "Hedgehog / angiogenesis-related signaling",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.74,
+      "safety": "yellow",
+      "composite_score": 0.7,
+      "rationale": "Itraconazole has been studied beyond antifungal use because it may interfere with pathways involved in cancer growth and angiogenesis. For pancreatic cancer, it is a plausible repurposing hypothesis when the disease biology points toward growth-factor and microenvironment signaling. Safety and drug-interaction risks make it less clean than metformin.",
+      "reaction_brief": "Itraconazole is a lipophilic triazole compound with multiple aromatic rings and heteroatoms that can support hydrophobic contacts and polar interactions. In this prototype, the molecular brief is a structured explanation for review rather than a validated binding-site model. The expected downstream effect would be disruption of signaling that supports tumor growth or vascular support.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/itraconazole/PNG",
+      "safety_detail": "Can cause liver toxicity and has significant CYP-mediated drug interaction concerns.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    },
+    {
+      "drug": "Simvastatin",
+      "approved_for": "High cholesterol",
+      "target": "HMGCR / mevalonate pathway",
+      "ic50": "prototype evidence",
+      "evidence_score": 0.61,
+      "safety": "green",
+      "composite_score": 0.58,
+      "rationale": "Simvastatin inhibits HMG-CoA reductase and can reduce flux through the mevalonate pathway, which affects cellular growth, membrane biology, and prenylation-dependent signaling. Those mechanisms make statins interesting repurposing candidates in oncology research. The evidence is mixed, so it ranks below stronger candidates in this prototype.",
+      "reaction_brief": "Simvastatin's active hydroxy acid form binds the HMGCR active site through polar contacts that mimic pathway intermediates. This can reduce production of mevalonate-derived molecules needed for downstream signaling and membrane-associated protein regulation. In a cancer context, that pathway-level disruption may reduce growth-supporting signaling.",
+      "structure_image_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/simvastatin/PNG",
+      "safety_detail": "Generally well characterized; muscle toxicity and liver enzyme elevations are known risks.",
+      "data_confidence": "Prototype cached result; PM/science validation required.",
+      "binding_site": "RCSB binding-site lookup stubbed for prototype."
+    }
+  ],
+  "warnings": [
+    "Cached demo disease; not clinical recommendation."
+  ]
+}
